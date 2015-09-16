@@ -5,4 +5,9 @@
     <string name="gotoReactionTimeButton">Reaction Time</string>
     <string name="gotoBuzzerButton">Game Show Buzzer</string>
     <string name="gotoStatisticsButton">Statistics</string>
+
+    <string name ="reactionButton">Click now!</string>
+    <string name="title_activity_reaction_timer">Reaction Timer</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
