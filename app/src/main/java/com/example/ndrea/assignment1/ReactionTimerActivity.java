@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class ReactionTimerActivity extends AppCompatActivity {
 
@@ -11,6 +13,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reaction_timer);
+
     }
 
     @Override
@@ -33,5 +36,12 @@ public class ReactionTimerActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void ControlButton(View view) {
+        Button button = (Button) findViewById(R.id.reactionButton);
+        ReactionButton reactionButton = new ReactionButton(button);
+        // Start button's hide/show behaviour
+        reactionButton.WaitToAppear();
     }
 }
