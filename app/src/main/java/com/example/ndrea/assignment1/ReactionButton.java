@@ -18,27 +18,6 @@ public class ReactionButton {
         this.button = button;
     }
 
-    public void WaitToAppear() {
-        // For delaying, record current time
-        Calendar timeCal = Calendar.getInstance();
-        Long startTime = timeCal.getTimeInMillis();
-
-        // Make sure button is not visible
-        this.button.setVisibility(View.INVISIBLE);
-
-        // Get delay
-        Long delay = GetDelay();
-
-        // Get button to wait for delay time, then appear
-        // TODO: Get Delay
-        while (Calendar.getInstance().getTimeInMillis() < (startTime + delay)) {
-            // Make sure button is not visible
-            this.button.setVisibility(View.INVISIBLE);
-            continue;
-        }
-        this.button.setVisibility(View.VISIBLE);
-    }
-
     public Long GetDelay() {
         Double delay = Math.random();
         // Convert delay to be up to 2000ms

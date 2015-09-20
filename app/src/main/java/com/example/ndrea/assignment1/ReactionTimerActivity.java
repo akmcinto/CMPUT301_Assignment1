@@ -1,5 +1,6 @@
 package com.example.ndrea.assignment1;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -42,6 +43,21 @@ public class ReactionTimerActivity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.reactionButton);
         ReactionButton reactionButton = new ReactionButton(button);
         // Start button's hide/show behaviour
-        reactionButton.WaitToAppear();
+        Long delay = reactionButton.GetDelay();
+
+        button.setVisibility(View.INVISIBLE);
+
+        Handler timerHandler = new Handler();
+        timerHandler.removeCallbacks(waitRunnable);
+        timerHandler.postDelayed(waitRunnable, delay);
     }
+
+    Runnable waitRunnable = new Runnable() {
+        @Override
+        public void run() {
+            Button button = (Button) findViewById(R.id.reactionButton);
+            button.setVisibility(View.VISIBLE);
+        }
+    };
+
 }
