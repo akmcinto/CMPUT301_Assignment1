@@ -1,4 +1,4 @@
-package com.example.ndrea.assignment1;
+package com.example.akmcinto.cmput301_assign1;
 
 import android.view.View;
 import android.widget.Button;

@@ -1,4 +1,4 @@
-package com.example.ndrea.assignment1;
+package com.example.akmcinto.cmput301_assign1;
 
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;

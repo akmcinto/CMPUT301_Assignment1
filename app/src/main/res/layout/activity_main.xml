@@ -13,8 +13,10 @@
         android:text="@string/gotoReactionTimeButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="40dp"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:onClick="reactionTimer"/>
 
     <Button
@@ -24,7 +26,9 @@
         android:text="@string/gotoBuzzerButton"
         android:layout_below="@+id/gotoReactionTimeButton"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="64dp"
+        android:layout_alignRight="@+id/gotoReactionTimeButton"
         android:layout_alignEnd="@+id/gotoReactionTimeButton" />
 
     <Button
@@ -34,6 +38,8 @@
         android:text="@string/gotoStatisticsButton"
         android:layout_below="@+id/gotoBuzzerButton"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="64dp"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>
