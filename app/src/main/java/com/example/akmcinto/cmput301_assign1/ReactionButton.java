@@ -12,7 +12,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ReactionButton {
 
-    Button button;
+    protected Button button;
+    private Long appearTime;
+    private Long clickTime;
+    private String visibility;
 
     public ReactionButton(Button button) {
         this.button = button;
@@ -31,4 +34,42 @@ public class ReactionButton {
         return delay.longValue();
     }
 
+    public Long getAppearTime() {
+        return appearTime;
+    }
+
+    public void setAppearTime(Long appearTime) {
+        this.appearTime = appearTime;
+    }
+
+    public Long getClickTime() {
+        return clickTime;
+    }
+
+    public void setClickTime(Long clickTime) {
+        this.clickTime = clickTime;
+    }
+
+    public String getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
+    }
+
+    public void changeVisibility(String visibility) {
+        if (visibility.equals("visible")) {
+            this.button.setVisibility(View.VISIBLE);
+        }
+        else if(visibility.equals("invisible")) {
+            this.button.setVisibility(View.INVISIBLE);
+        }
+        setVisibility(visibility);
+    }
+
+    public String getReactionTime() {
+        Long reactionTime = this.getClickTime() - this.getAppearTime();
+        return reactionTime.toString();
+    }
 }

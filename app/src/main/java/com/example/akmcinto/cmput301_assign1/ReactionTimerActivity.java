@@ -1,5 +1,6 @@
 package com.example.akmcinto.cmput301_assign1;
 
+import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,14 +8,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Calendar;
 
 public class ReactionTimerActivity extends AppCompatActivity {
+
+    ReactionButton reactionButton;
+    // Create the filenames for persistent app data
+    public String REACTION_FILE_NAME = "reactionTimerDataFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reaction_timer);
 
+        Button button = (Button) findViewById(R.id.reactionButton);
+        reactionButton = new ReactionButton(button);
+
+        ControlButton();
     }
 
     @Override
@@ -39,13 +53,11 @@ public class ReactionTimerActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void ControlButton(View view) {
-        Button button = (Button) findViewById(R.id.reactionButton);
-        ReactionButton reactionButton = new ReactionButton(button);
+    public void ControlButton() {
         // Start button's hide/show behaviour
-        Long delay = reactionButton.GetDelay();
+        Long delay = this.reactionButton.GetDelay();
 
-        button.setVisibility(View.INVISIBLE);
+        this.reactionButton.changeVisibility("invisible");
 
         Handler timerHandler = new Handler();
         timerHandler.removeCallbacks(waitRunnable);
@@ -55,9 +67,55 @@ public class ReactionTimerActivity extends AppCompatActivity {
     Runnable waitRunnable = new Runnable() {
         @Override
         public void run() {
-            Button button = (Button) findViewById(R.id.reactionButton);
-            button.setVisibility(View.VISIBLE);
+            showButton();
         }
     };
+
+    public void showButton() {
+        this.reactionButton.changeVisibility("visible");
+        //Save when the button appeared to calculate reaction time
+        this.reactionButton.setAppearTime(Calendar.getInstance().getTimeInMillis());
+    }
+
+    public void TimerButtonClicked(View view) {
+        // Make sure button is visible when screen pressed
+        TextView clickText = (TextView) findViewById(R.id.clickMessage);
+        if (this.reactionButton.getVisibility().equals("invisible")) {
+            clickText.setText("Clicked too soon!");
+        }
+        else {
+            // When button is clicked, save the time for computing reaction time, then restart
+            this.reactionButton.setClickTime(Calendar.getInstance().getTimeInMillis());
+            String reactionTime = this.reactionButton.getReactionTime();
+            saveReactionTime(reactionTime);
+            clickText.setText("Reaction time: " + reactionTime + "ms");
+        }
+
+        // Text message should disapear after a second
+        Handler textHandler = new Handler();
+        textHandler.removeCallbacks(textRunnable);
+        textHandler.postDelayed(textRunnable, 1000);
+
+        ControlButton();
+    }
+
+    Runnable textRunnable = new Runnable() {
+        @Override
+        public void run() {
+            TextView clickText = (TextView) findViewById(R.id.clickMessage);
+            clickText.setText("");
+        }
+    };
+
+    private void saveReactionTime(String time) {
+        // Save data to file
+        try {
+            FileOutputStream fos = openFileOutput(REACTION_FILE_NAME, Context.MODE_PRIVATE);
+            fos.write(time.getBytes());
+            fos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
