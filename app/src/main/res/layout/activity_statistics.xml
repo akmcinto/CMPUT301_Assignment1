@@ -1,6 +1,80 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" 
+    android:layout_height="match_parent"
     tools:context="com.example.akmcinto.cmput301_assign1.StatisticsActivity">
 
-</RelativeLayout>
+    <TableRow>
+        <TextView
+            android:id="@+id/ReactionTimeStatsTitle"
+            android:layout_column="1"
+            android:text="@string/reaction_time_stats_title"
+            android:padding="3dip" />
+    </TableRow>
+
+    <!-- Blank row for spacing -->
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="2"
+            android:text="Fastest"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="3"
+            android:text="Slowest"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="Last 10"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="2"
+            android:id="@+id/fastestReaction10"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="3"
+            android:id="@+id/slowestReaction10"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="Last 100"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="2"
+            android:id="@+id/fastestReaction100"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="3"
+            android:id="@+id/slowestReaction100"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="All time"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="2"
+            android:id="@+id/fastestReactionAll"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="3"
+            android:id="@+id/slowestReactionAll"
+            android:padding="3dip" />
+    </TableRow>
+
+</TableLayout>

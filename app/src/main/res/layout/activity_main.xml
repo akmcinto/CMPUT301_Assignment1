@@ -41,5 +41,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginTop="64dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="displayStatistics"/>
+
 </RelativeLayout>

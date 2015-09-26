@@ -2,10 +2,17 @@ package com.example.akmcinto.cmput301_assign1;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class StatisticsActivity extends ActionBarActivity {
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+public class StatisticsActivity extends AppCompatActivity {
+
+    // Get reaction times singleton
+    private ReactionTimes reactionTimes = ReactionTimes.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,4 +41,10 @@ public class StatisticsActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void loadReactionTimes() {
+        reactionTimes.loadReactionTime(this.getBaseContext());
+
+    }
+
 }

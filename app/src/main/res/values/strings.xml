@@ -9,6 +9,7 @@
     <string name ="reactionButton">Click now!</string>
     <string name="title_activity_reaction_timer">Reaction Timer</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="reaction_time_stats_title">Reaction Times</string>
+
 </resources>

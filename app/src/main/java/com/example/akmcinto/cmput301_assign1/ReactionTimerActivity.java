@@ -1,6 +1,5 @@
 package com.example.akmcinto.cmput301_assign1;
 
-import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,29 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-// Gson code from https://github.com/google/gson
-// Instructions on how to add: lepoetemaudit, http://stackoverflow.com/questions/16608135/android-studio-add-jar-as-library, 2015-09-25
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 public class ReactionTimerActivity extends AppCompatActivity {
 
     ReactionButton reactionButton;
-    // Create the filenames for persistent app data
-    public String REACTION_FILE_NAME = "reactionTimerDataFile";
-    private ArrayList<Long> reactionTimes = new ArrayList<Long>();
+    private ReactionTimes reactionTimes = ReactionTimes.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +24,6 @@ public class ReactionTimerActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.reactionButton);
         reactionButton = new ReactionButton(button);
-
-        loadReactionTime();
 
         ControlButton();
     }
@@ -103,12 +84,11 @@ public class ReactionTimerActivity extends AppCompatActivity {
             // When button is clicked, save the time for computing reaction time, then restart
             this.reactionButton.setClickTime(Calendar.getInstance().getTimeInMillis());
             Long reactionTime = this.reactionButton.getReactionTime();
-            this.reactionTimes.add(reactionTime);
-            saveReactionTime();
+            this.reactionTimes.addReactionTime(reactionTime, this.getBaseContext());
             clickText.setText("Reaction time: " + reactionTime.toString() + "ms");
         }
 
-        // Text message should disapear after a second
+        // Text message should disappear after a second
         Handler textHandler = new Handler();
         textHandler.removeCallbacks(textRunnable);
         textHandler.postDelayed(textRunnable, 1000);
@@ -123,39 +103,6 @@ public class ReactionTimerActivity extends AppCompatActivity {
             clickText.setText("");
         }
     };
-
-    private void saveReactionTime() {
-        // Save data to file
-        try {
-            // From lab
-            FileOutputStream fos = openFileOutput(REACTION_FILE_NAME, Context.MODE_PRIVATE);
-            BufferedWriter output = new BufferedWriter(new OutputStreamWriter(fos));
-            Gson gson = new Gson();
-            gson.toJson(this.reactionTimes, output);
-            output.flush();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void loadReactionTime() {
-        try {
-            FileInputStream fis = openFileInput(REACTION_FILE_NAME);
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-            Gson gson = new Gson();
-            // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html, 2015-09-23
-            Type arrayListType = new TypeToken<ArrayList<Long>>() {}.getType();
-            this.reactionTimes = gson.fromJson(in, arrayListType);
-
-        } catch (FileNotFoundException e) {
-            reactionTimes = new ArrayList<Long>();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }
 
