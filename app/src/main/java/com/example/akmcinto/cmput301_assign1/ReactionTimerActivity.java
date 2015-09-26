@@ -1,5 +1,8 @@
 package com.example.akmcinto.cmput301_assign1;
 
+import android.app.AlertDialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,16 +18,36 @@ public class ReactionTimerActivity extends AppCompatActivity {
 
     ReactionButton reactionButton;
     private ReactionTimes reactionTimes = ReactionTimes.getInstance();
+    private AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reaction_timer);
 
+        // Display instructions dialog
+        displayInstructions();
+
         Button button = (Button) findViewById(R.id.reactionButton);
         reactionButton = new ReactionButton(button);
 
         ControlButton();
+    }
+
+    private void displayInstructions() {
+        // http://stackoverflow.com/questions/26097513/android-simple-alert-dialog, MysticMagicϡ, 2015-09-26
+        this.alertDialog = new AlertDialog.Builder(ReactionTimerActivity.this).create();
+        alertDialog.setMessage("Click button as quickly as possible after it appears.  " +
+                "Press back button to exit.");
+        alertDialog.setTitle("Reaction Timer Instructions");
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Okay", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
     }
 
     @Override
