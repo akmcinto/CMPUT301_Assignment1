@@ -10,4 +10,5 @@
     <string name="title_activity_reaction_timer">Reaction Timer</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_statistics">StatisticsActivity</string>
 </resources>
