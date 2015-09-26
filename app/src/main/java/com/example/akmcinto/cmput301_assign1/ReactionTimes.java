@@ -23,7 +23,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 /* Class for handling saving and loading reaction times */
@@ -81,6 +81,58 @@ public class ReactionTimes {
         }
     }
 
+    /*
+    Return dictionary containing all relevant stat values - key is string describing what stat
+    value is being recorded.
+    */
+    public HashMap<String, Long> timeStats() {
+        int end = this.reactionTimes.size();
+        // Save all times to a new variable to sort it (for median) without destroying ordering in file
+        List<Long> allTimes = this.reactionTimes;
+        int last10end = end - 10;
+        if (last10end < 0) { last10end = 0; }
+        int last100end = end - 100;
+        if (last100end < 0) { last100end = 0; }
+        List<Long> last10Times = allTimes.subList(last10end, end);
+        List<Long> last100Times = allTimes.subList(last100end, end);
 
+        // Sum arrays together to calculate mean
+        Long sum10 = Long.valueOf(0);
+        for (Long num : last10Times) {
+            sum10 += num;
+        }
+        Long sum100 = Long.valueOf(0);
+        for (Long num : last100Times) {
+            sum100 += num;
+        }
+        Long sumAll = Long.valueOf(0);
+        for (Long num : allTimes) {
+            sumAll += num;
+        }
+
+        // Sort lists to find median
+        Collections.sort(last10Times);
+        Collections.sort(last100Times);
+        Collections.sort(allTimes);
+
+        // Save values to a dictionary
+        HashMap<String, Long> timeStats = new HashMap<String, Long>();
+
+        // http://stackoverflow.com/questions/8304767/how-to-get-maximum-value-from-the-list-arraylist, gotomanners, 2015-09-26
+        timeStats.put("fast10", Collections.min(last10Times));
+        timeStats.put("slow10", Collections.max(last10Times));
+        timeStats.put("fast100", Collections.min(last100Times));
+        timeStats.put("slow100", Collections.max(last100Times));
+        timeStats.put("fastAll", Collections.min(this.reactionTimes));
+        timeStats.put("slowAll", Collections.max(this.reactionTimes));
+        timeStats.put("mean10", sum10 / last10Times.size());
+        timeStats.put("mean100", sum100 / last100Times.size());
+        timeStats.put("meanAll", sumAll / end);
+        timeStats.put("median10", last10Times.get(Math.round(last10Times.size()/2)));
+        timeStats.put("median100", last100Times.get(Math.round(last100Times.size()/2)));
+        timeStats.put("medianAll", allTimes.get(Math.round(end/2)));
+
+        return timeStats;
+    }
 
 }
