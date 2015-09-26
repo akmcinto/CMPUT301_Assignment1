@@ -68,8 +68,8 @@ public class ReactionButton {
         setVisibility(visibility);
     }
 
-    public String getReactionTime() {
+    public Long getReactionTime() {
         Long reactionTime = this.getClickTime() - this.getAppearTime();
-        return reactionTime.toString();
+        return reactionTime;
     }
 }
