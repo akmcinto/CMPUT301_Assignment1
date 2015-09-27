@@ -63,7 +63,7 @@ public class BuzzerWinners {
         }
     }
 
-    public void loadBuzzerTimes(Context context) {
+    public void loadBuzzerWinners(Context context) {
         try {
             FileInputStream fis = context.openFileInput(BUZZER_FILE_NAME);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
@@ -77,6 +77,62 @@ public class BuzzerWinners {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public HashMap<String, Integer> buzzerStats() {
+        Integer player1Mode2Wins = 0;
+        Integer player2Mode2Wins = 0;
+        ArrayList<Integer> mode2 = this.buzzerWinners.get(2);
+        if (mode2 == null) {
+            mode2 = new ArrayList<Integer>();
+        }
+        for (Integer winner : mode2) {
+            if (winner.equals(1)) { player1Mode2Wins += 1; }
+            else if (winner.equals(2)) { player2Mode2Wins += 1; }
+        }
+
+        Integer player1Mode3Wins = 0;
+        Integer player2Mode3Wins = 0;
+        Integer player3Mode3Wins = 0;
+        ArrayList<Integer> mode3 = this.buzzerWinners.get(3);
+        if (mode3 == null) {
+            mode3 = new ArrayList<Integer>();
+        }
+        for (Integer winner : mode3) {
+            if (winner.equals(1)) { player1Mode3Wins += 1; }
+            else if (winner.equals(2)) { player2Mode3Wins += 1; }
+            else if (winner.equals(3)) { player3Mode3Wins += 1; }
+        }
+
+        Integer player1Mode4Wins = 0;
+        Integer player2Mode4Wins = 0;
+        Integer player3Mode4Wins = 0;
+        Integer player4Mode4Wins = 0;
+        ArrayList<Integer> mode4 = this.buzzerWinners.get(4);
+        if (mode4 == null) {
+            mode4 = new ArrayList<Integer>();
+        }
+        for (Integer winner : mode4) {
+            if (winner.equals(1)) { player1Mode4Wins += 1; }
+            else if (winner.equals(2)) { player2Mode4Wins += 1; }
+            else if (winner.equals(3)) { player3Mode4Wins += 1; }
+            else if (winner.equals(4)) { player4Mode4Wins += 1; }
+        }
+
+        // Save values to a dictionary
+        HashMap<String, Integer> buzzerStats = new HashMap<String, Integer>();
+
+        buzzerStats.put("player1Mode2", player1Mode2Wins);
+        buzzerStats.put("player1Mode3", player1Mode3Wins);
+        buzzerStats.put("player1Mode4", player1Mode4Wins);
+        buzzerStats.put("player2Mode2", player2Mode2Wins);
+        buzzerStats.put("player2Mode3", player2Mode3Wins);
+        buzzerStats.put("player2Mode4", player2Mode4Wins);
+        buzzerStats.put("player3Mode3", player3Mode3Wins);
+        buzzerStats.put("player3Mode4", player3Mode4Wins);
+        buzzerStats.put("player4Mode4", player4Mode4Wins);
+
+        return buzzerStats;
     }
 
 }

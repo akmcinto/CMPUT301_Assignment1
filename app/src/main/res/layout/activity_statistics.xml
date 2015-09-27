@@ -6,7 +6,7 @@
     <TableRow>
         <TextView
             android:id="@+id/ReactionTimeStatsTitle"
-            android:layout_column="1"
+            android:layout_span="5"
             android:text="@string/reaction_time_stats_title"
             android:padding="3dip" />
     </TableRow>
@@ -31,7 +31,7 @@
             android:text="Last 100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:text="All Time"
             android:padding="3dip" />
     </TableRow>
@@ -50,7 +50,7 @@
             android:id="@+id/fast100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/fastAll"
             android:padding="3dip" />
     </TableRow>
@@ -69,7 +69,7 @@
             android:id="@+id/slow100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/slowAll"
             android:padding="3dip" />
     </TableRow>
@@ -88,7 +88,7 @@
             android:id="@+id/mean100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/meanAll"
             android:padding="3dip" />
     </TableRow>
@@ -107,8 +107,116 @@
             android:id="@+id/median100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/medianAll"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/BuzzerStatsTitle"
+            android:layout_column="1"
+            android:text="Gameshow Buzzer Statistics"
+            android:padding="3dip"
+            android:layout_span="5" />
+    </TableRow>
+
+    <!-- Blank row for spacing -->
+    <TableRow>
+        <TextView
+            android:padding="3dip"
+            android:layout_column="1" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Winner:"/>
+        <TextView
+            android:layout_column="2"
+            android:text="Player 1"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="3"
+            android:text="Player 2"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="4"
+            android:text="Player 3"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="5"
+            android:text="Player 4"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="2-Player Mode"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="2"
+            android:id="@+id/player1Mode2"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="3"
+            android:id="@+id/player2Mode2"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="4"
+            android:id="@+id/player3Mode2"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="5"
+            android:id="@+id/player4Mode2"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="3-Player Mode"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="2"
+            android:id="@+id/player1Mode3"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="3"
+            android:id="@+id/player2Mode3"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="4"
+            android:id="@+id/player3Mode3"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="5"
+            android:id="@+id/player4Mode3"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="4-Player Mode"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="2"
+            android:id="@+id/player1Mode4"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="3"
+            android:id="@+id/player2Mode4"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="4"
+            android:id="@+id/player3Mode4"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="5"
+            android:id="@+id/player4Mode4"
             android:padding="3dip" />
     </TableRow>
 

@@ -15,6 +15,8 @@ public class StatisticsActivity extends AppCompatActivity {
 
     // Get reaction times singleton
     private ReactionTimes reactionTimes = ReactionTimes.getInstance();
+    // Get buzzer winner singletons
+    private BuzzerWinners buzzerWinners = BuzzerWinners.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class StatisticsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_statistics);
 
         loadReactionTimes();
+        loadBuzzerWinners();
     }
 
     @Override
@@ -53,6 +56,13 @@ public class StatisticsActivity extends AppCompatActivity {
         displayReactionTimes(timeStats);
     }
 
+    private void loadBuzzerWinners() {
+        buzzerWinners.loadBuzzerWinners(this.getBaseContext());
+
+        HashMap<String, Integer> buzzerStats = buzzerWinners.buzzerStats();
+        displayBuzzerWinners(buzzerStats);
+    }
+
     private void displayReactionTimes(HashMap<String, Long> timeStats) {
         TextView tableCell = (TextView) findViewById(R.id.fast10);
         tableCell.setText(timeStats.get("fast10").toString());
@@ -81,6 +91,29 @@ public class StatisticsActivity extends AppCompatActivity {
         tableCell.setText(timeStats.get("median100").toString());
         tableCell = (TextView) findViewById(R.id.medianAll);
         tableCell.setText(timeStats.get("medianAll").toString());
+    }
+
+    private void displayBuzzerWinners(HashMap<String, Integer> buzzerStats) {
+        TextView tableCell = (TextView) findViewById(R.id.player1Mode2);
+        tableCell.setText(buzzerStats.get("player1Mode2").toString());
+        tableCell = (TextView) findViewById(R.id.player2Mode2);
+        tableCell.setText(buzzerStats.get("player2Mode2").toString());
+
+        tableCell = (TextView) findViewById(R.id.player1Mode3);
+        tableCell.setText(buzzerStats.get("player1Mode3").toString());
+        tableCell = (TextView) findViewById(R.id.player2Mode3);
+        tableCell.setText(buzzerStats.get("player2Mode3").toString());
+        tableCell = (TextView) findViewById(R.id.player3Mode3);
+        tableCell.setText(buzzerStats.get("player3Mode3").toString());
+
+        tableCell = (TextView) findViewById(R.id.player1Mode4);
+        tableCell.setText(buzzerStats.get("player1Mode4").toString());
+        tableCell = (TextView) findViewById(R.id.player2Mode4);
+        tableCell.setText(buzzerStats.get("player2Mode4").toString());
+        tableCell = (TextView) findViewById(R.id.player3Mode4);
+        tableCell.setText(buzzerStats.get("player3Mode4").toString());
+        tableCell = (TextView) findViewById(R.id.player4Mode4);
+        tableCell.setText(buzzerStats.get("player4Mode4").toString());
     }
 
 }
