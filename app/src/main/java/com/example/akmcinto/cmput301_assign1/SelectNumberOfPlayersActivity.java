@@ -1,25 +1,24 @@
 package com.example.akmcinto.cmput301_assign1;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class SelectNumberOfPlayersActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_select_number_of_players);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_select_number_of_players, menu);
         return true;
     }
 
@@ -38,18 +37,19 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void reactionTimer(View view) {
-        Intent intent = new Intent(MainActivity.this, ReactionTimerActivity.class);
+    public void select2PlayerBuzzer(View view) {
+        Intent intent = new Intent(SelectNumberOfPlayersActivity.this, Player2BuzzerActivity.class);
         startActivity(intent);
     }
 
-    public void displayStatistics(View view) {
-        Intent intent = new Intent(MainActivity.this, StatisticsActivity.class);
+    public void select3PlayerBuzzer(View view) {
+        Intent intent = new Intent(SelectNumberOfPlayersActivity.this, Player3BuzzerActivity.class);
         startActivity(intent);
     }
 
-    public void buzzerPlayerSelect(View view) {
-        Intent intent = new Intent(MainActivity.this, SelectNumberOfPlayersActivity.class);
+    public void select4PlayerBuzzer(View view) {
+        Intent intent = new Intent(SelectNumberOfPlayersActivity.this, Player4BuzzerActivity.class);
         startActivity(intent);
     }
+
 }

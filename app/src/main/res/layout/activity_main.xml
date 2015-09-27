@@ -29,7 +29,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginTop="64dp"
         android:layout_alignRight="@+id/gotoReactionTimeButton"
-        android:layout_alignEnd="@+id/gotoReactionTimeButton" />
+        android:layout_alignEnd="@+id/gotoReactionTimeButton"
+        android:onClick="buzzerPlayerSelect"/>
 
     <Button
         android:layout_width="wrap_content"

@@ -24,6 +24,22 @@
             android:name=".StatisticsActivity"
             android:label="@string/title_activity_statistics" >
         </activity>
+        <activity
+            android:name=".SelectNumberOfPlayersActivity"
+            android:label="@string/title_activity_select_number_of_players" >
+        </activity>
+        <activity
+            android:name=".Player2BuzzerActivity"
+            android:label="@string/title_activity_player2_buzzer" >
+        </activity>
+        <activity
+            android:name=".Player3BuzzerActivity"
+            android:label="@string/title_activity_player3_buzzer" >
+        </activity>
+        <activity
+            android:name=".Player4BuzzerActivity"
+            android:label="@string/title_activity_player4_buzzer" >
+        </activity>
     </application>
 
 </manifest>

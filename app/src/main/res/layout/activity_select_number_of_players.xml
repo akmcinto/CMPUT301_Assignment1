@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.akmcinto.cmput301_assign1.SelectNumberOfPlayersActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 Players"
+        android:id="@+id/select2PlayersButton"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/howManyPlayersText"
+        android:layout_centerHorizontal="true"
+        android:onClick="select2PlayerBuzzer"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 Players"
+        android:id="@+id/select3PlayersButton"
+        android:layout_below="@+id/select2PlayersButton"
+        android:layout_alignLeft="@+id/select2PlayersButton"
+        android:layout_alignStart="@+id/select2PlayersButton"
+        android:layout_marginTop="50dp"
+        android:onClick="select3PlayerBuzzer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="How many players?"
+        android:id="@+id/howManyPlayersText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="select4PlayerBuzzer"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4 Players"
+        android:id="@+id/select4PlayersButton"
+        android:layout_below="@+id/select3PlayersButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:onClick="select5PlayerBuzzer"/>
+</RelativeLayout>

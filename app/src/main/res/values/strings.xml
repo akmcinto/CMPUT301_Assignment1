@@ -11,5 +11,11 @@
 
     <string name="title_activity_statistics">StatisticsActivity</string>
     <string name="reaction_time_stats_title">Reaction Times</string>
+    <string name="title_activity_select_number_of_players">SelectNumberOfPlayersActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_player2_buzzer">Player2BuzzerActivity</string>
+    <string name="title_activity_player3_buzzer">Player3BuzzerActivity</string>
+    <string name="title_activity_player4_buzzer">Player4BuzzerActivity</string>
 
 </resources>
