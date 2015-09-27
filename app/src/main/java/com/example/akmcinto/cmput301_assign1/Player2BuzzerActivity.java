@@ -2,15 +2,21 @@ package com.example.akmcinto.cmput301_assign1;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
-public class Player2BuzzerActivity extends ActionBarActivity {
+public class Player2BuzzerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player2_buzzer);
+
+        // Set player buttons
+        new BuzzerButton((Button) findViewById(R.id.player1Button2), 1, 2, Player2BuzzerActivity.this);
+        new BuzzerButton((Button) findViewById(R.id.player2Button2), 2, 2, Player2BuzzerActivity.this);
     }
 
     @Override
