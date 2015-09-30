@@ -13,16 +13,22 @@
         android:id="@+id/player1Button4"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:height="225dp"
+        android:width="150dp"
+        android:background="@android:color/holo_blue_light"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player 2"
         android:id="@+id/player2Button4"
-        android:layout_alignTop="@+id/player1Button4"
-        android:layout_alignLeft="@+id/player4Button4"
-        android:layout_alignStart="@+id/player4Button4" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:height="225dp"
+        android:width="150dp"
+        android:background="@android:color/holo_red_light"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -31,7 +37,10 @@
         android:id="@+id/player3Button4"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:height="225dp"
+        android:width="150dp"
+        android:background="@android:color/holo_green_light"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -40,6 +49,9 @@
         android:id="@+id/player4Button4"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:height="225dp"
+        android:width="150dp"
+        android:background="@android:color/holo_purple"/>
 
 </RelativeLayout>

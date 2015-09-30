@@ -4,18 +4,11 @@
     android:layout_height="match_parent"
     android:onClick="TimerButtonClicked">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reactionButton"
-        android:id="@+id/reactionButton"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="TimerButtonClicked" />
-
+    <!-- Bill, http://stackoverflow.com/questions/432037/how-do-i-center-text-horizontally-and-vertically-in-a-textview-in-android, 2015-09-30 -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/clickMessage"
         android:layout_alignParentTop="true"
@@ -25,7 +18,23 @@
         android:layout_alignParentRight="true"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
-        android:elegantTextHeight="false"
-        android:visibility="visible" />
+        android:elegantTextHeight="true"
+        android:visibility="visible"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reactionButton"
+        android:id="@+id/reactionButton"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="TimerButtonClicked"
+        android:height="150dp"
+        android:width="300dp"
+        android:background="@android:color/holo_blue_light"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="30dp"/>
+
+
 
 </RelativeLayout>

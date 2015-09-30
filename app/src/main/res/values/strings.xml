@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CMPUT301_Assign1</string>
+    <string name="app_name">akmcinto-reflex</string>
     <string name="action_settings">Settings</string>
 
     <string name="gotoReactionTimeButton">Reaction Time</string>
@@ -9,13 +9,13 @@
     <string name ="reactionButton">Click now!</string>
     <string name="title_activity_reaction_timer">Reaction Timer</string>
 
-    <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="title_activity_statistics">Statistics</string>
     <string name="reaction_time_stats_title">Reaction Times</string>
-    <string name="title_activity_select_number_of_players">SelectNumberOfPlayersActivity</string>
+    <string name="title_activity_select_number_of_players">Select Number Of Players</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_player2_buzzer">Player2BuzzerActivity</string>
-    <string name="title_activity_player3_buzzer">Player3BuzzerActivity</string>
-    <string name="title_activity_player4_buzzer">Player4BuzzerActivity</string>
+    <string name="title_activity_player2_buzzer">2 Player Buzzer</string>
+    <string name="title_activity_player3_buzzer">3 Player Buzzer</string>
+    <string name="title_activity_player4_buzzer">4 Player Buzzer</string>
 
 </resources>
