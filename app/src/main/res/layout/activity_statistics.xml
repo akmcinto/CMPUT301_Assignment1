@@ -9,15 +9,11 @@
             android:id="@+id/ReactionTimeStatsTitle"
             android:layout_span="6"
             android:text="@string/reaction_time_stats_title"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold"
+            android:textScaleX="1.5" />
     </TableRow>
 
-    <!-- Blank row for spacing -->
-    <TableRow>
-        <TextView
-            android:layout_column="1"
-            android:padding="3dip" />
-    </TableRow>
 
     <TableRow>
         <TextView
@@ -44,7 +40,8 @@
         <TextView
             android:layout_column="1"
             android:text="Fastest"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="3"
             android:id="@+id/fast10"
@@ -63,7 +60,8 @@
         <TextView
             android:layout_column="1"
             android:text="Slowest"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="3"
             android:id="@+id/slow10"
@@ -82,7 +80,8 @@
         <TextView
             android:layout_column="1"
             android:text="Mean"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="3"
             android:id="@+id/mean10"
@@ -101,7 +100,8 @@
         <TextView
             android:layout_column="1"
             android:text="Median"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="3"
             android:id="@+id/median10"
@@ -116,6 +116,7 @@
             android:padding="3dip" />
     </TableRow>
 
+    <!-- Blank row for spacing -->
     <TableRow>
         <TextView
             android:layout_column="1"
@@ -126,46 +127,47 @@
         <TextView
             android:id="@+id/BuzzerStatsTitle"
             android:layout_column="1"
-            android:text="Gameshow Buzzer Statistics"
+            android:text="Gameshow Buzzer Winners"
             android:padding="3dip"
-            android:layout_span="6" />
-    </TableRow>
-
-    <!-- Blank row for spacing -->
-    <TableRow>
-        <TextView
-            android:padding="3dip"
-            android:layout_column="1" />
+            android:layout_span="6"
+            android:textStyle="bold"
+            android:textScaleX="1.5"/>
     </TableRow>
 
     <TableRow>
         <TextView
             android:layout_column="1"
             android:padding="3dip"
-            android:text="Winner:"/>
+            android:text="Winner:"
+            android:textStyle="bold"/>
         <TextView
             android:layout_column="3"
             android:text="Player 1"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="4"
             android:text="Player 2"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="5"
             android:text="Player 3"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="6"
             android:text="Player 4"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow>
         <TextView
             android:layout_column="1"
             android:text="2-Player Mode"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="3"
             android:id="@+id/player1Mode2"
@@ -188,7 +190,8 @@
         <TextView
             android:layout_column="1"
             android:text="3-Player Mode"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="3"
             android:id="@+id/player1Mode3"
@@ -211,7 +214,8 @@
         <TextView
             android:layout_column="1"
             android:text="4-Player Mode"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold" />
         <TextView
             android:layout_column="3"
             android:id="@+id/player1Mode4"
@@ -259,14 +263,6 @@
             android:id="@+id/clearAllStatsButton"
             android:layout_column="5" />
 
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_column="1"
-            android:padding="3dip" />
     </TableRow>
 
     <TableRow

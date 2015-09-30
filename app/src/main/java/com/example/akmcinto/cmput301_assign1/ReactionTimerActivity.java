@@ -19,6 +19,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
     ReactionButton reactionButton;
     private ReactionTimes reactionTimes = ReactionTimes.getInstance();
     private AlertDialog alertDialog;
+    Handler timerHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +78,6 @@ public class ReactionTimerActivity extends AppCompatActivity {
 
         this.reactionButton.changeVisibility("invisible");
 
-        Handler timerHandler = new Handler();
         timerHandler.removeCallbacks(waitRunnable);
         timerHandler.postDelayed(waitRunnable, delay);
     }

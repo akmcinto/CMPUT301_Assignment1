@@ -91,7 +91,7 @@ public class ReactionTimes {
     */
     public HashMap<String, Long> timeStats() {
         // Save all times to a new variable to sort it (for median) without destroying ordering in file
-        List<Long> allTimes = this.reactionTimes;
+        List<Long> allTimes = (List<Long>) this.reactionTimes.clone();
         if (allTimes.isEmpty()) { allTimes.add(Long.valueOf(0)); }
         int end = allTimes.size();
 
@@ -116,11 +116,6 @@ public class ReactionTimes {
             sumAll += num;
         }
 
-        // Sort lists to find median
-        Collections.sort(last10Times);
-        Collections.sort(last100Times);
-        Collections.sort(allTimes);
-
         // Save values to a dictionary
         HashMap<String, Long> timeStats = new HashMap<String, Long>();
 
@@ -129,13 +124,17 @@ public class ReactionTimes {
         timeStats.put("slow10", Collections.max(last10Times));
         timeStats.put("fast100", Collections.min(last100Times));
         timeStats.put("slow100", Collections.max(last100Times));
-        timeStats.put("fastAll", Collections.min(this.reactionTimes));
-        timeStats.put("slowAll", Collections.max(this.reactionTimes));
+        timeStats.put("fastAll", Collections.min(allTimes));
+        timeStats.put("slowAll", Collections.max(allTimes));
         timeStats.put("mean10", sum10 / last10Times.size());
         timeStats.put("mean100", sum100 / last100Times.size());
         timeStats.put("meanAll", sumAll / end);
-        timeStats.put("median10", last10Times.get(Math.round(last10Times.size()/2)));
-        timeStats.put("median100", last100Times.get(Math.round(last100Times.size()/2)));
+        // Sort lists to find median
+        Collections.sort(last10Times);
+        timeStats.put("median10", last10Times.get(Math.round(last10Times.size() / 2)));
+        Collections.sort(last100Times);
+        timeStats.put("median100", last100Times.get(Math.round(last100Times.size() / 2)));
+        Collections.sort(allTimes);
         timeStats.put("medianAll", allTimes.get(Math.round(end/2)));
 
         return timeStats;
