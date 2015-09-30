@@ -12,37 +12,43 @@
         android:id="@+id/gotoReactionTimeButton"
         android:text="@string/gotoReactionTimeButton"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="40dp"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:onClick="reactionTimer"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="34dp"
+        android:height="75dp"
+        android:onClick="reactionTimer"
+        android:background="@android:color/holo_purple"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gotoBuzzerButton"
         android:text="@string/gotoBuzzerButton"
-        android:layout_below="@+id/gotoReactionTimeButton"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="64dp"
-        android:layout_alignRight="@+id/gotoReactionTimeButton"
-        android:layout_alignEnd="@+id/gotoReactionTimeButton"
-        android:onClick="buzzerPlayerSelect"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:height="75dp"
+        android:onClick="buzzerPlayerSelect"
+        android:background="@android:color/holo_purple"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gotoStatisticsButton"
         android:text="@string/gotoStatisticsButton"
-        android:layout_below="@+id/gotoBuzzerButton"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="64dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="displayStatistics"/>
+        android:layout_marginBottom="34dp"
+        android:height="75dp"
+        android:onClick="displayStatistics"
+        android:background="@android:color/holo_purple"/>
 
 </RelativeLayout>

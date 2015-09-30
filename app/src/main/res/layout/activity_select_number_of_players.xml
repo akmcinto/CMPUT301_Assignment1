@@ -13,36 +13,51 @@
         android:text="How many players?"
         android:id="@+id/howManyPlayersText"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2 Players"
         android:id="@+id/select2PlayersButton"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/howManyPlayersText"
-        android:layout_centerHorizontal="true"
-        android:onClick="select2PlayerBuzzer"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/select3PlayersButton"
+        android:layout_marginBottom="35dp"
+        android:height="75dp"
+        android:onClick="select2PlayerBuzzer"
+        android:background="@android:color/holo_orange_light"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3 Players"
         android:id="@+id/select3PlayersButton"
-        android:layout_below="@+id/select2PlayersButton"
-        android:layout_alignLeft="@+id/select2PlayersButton"
-        android:layout_alignStart="@+id/select2PlayersButton"
-        android:layout_marginTop="50dp"
-        android:onClick="select3PlayerBuzzer"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="35dp"
+        android:height="75dp"
+        android:onClick="select3PlayerBuzzer"
+        android:background="@android:color/holo_orange_light"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="4 Players"
         android:id="@+id/select4PlayersButton"
-        android:layout_below="@+id/select3PlayersButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:onClick="select4PlayerBuzzer"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/select3PlayersButton"
+        android:height="75dp"
+        android:onClick="select4PlayerBuzzer"
+        android:background="@android:color/holo_orange_light"/>
 </RelativeLayout>
