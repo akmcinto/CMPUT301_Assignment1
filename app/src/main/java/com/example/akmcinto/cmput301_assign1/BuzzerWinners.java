@@ -13,7 +13,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,7 +44,7 @@ public class BuzzerWinners {
         saveBuzzerWinners(context);
     }
 
-    private void saveBuzzerWinners(Context context) {
+    public void saveBuzzerWinners(Context context) {
         // Save data to file
         try {
             // http://stackoverflow.com/questions/3625837/android-what-is-wrong-with-openfileoutput, naikus, 2015-09-26
@@ -77,6 +76,10 @@ public class BuzzerWinners {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void clearData() {
+        this.buzzerWinners.clear();
     }
 
     public HashMap<String, Integer> buzzerStats() {

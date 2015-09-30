@@ -25,13 +25,11 @@ public class ReactionTimerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reaction_timer);
 
-        // Display instructions dialog
-        displayInstructions();
-
         Button button = (Button) findViewById(R.id.reactionButton);
         reactionButton = new ReactionButton(button);
 
-        ControlButton();
+        // Display instructions dialog
+        displayInstructions();
     }
 
     private void displayInstructions() {
@@ -44,6 +42,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Okay", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
+                ControlButton();
             }
         });
 

@@ -47,7 +47,7 @@ public class ReactionTimes {
         saveReactionTime(context);
     }
 
-    private void saveReactionTime(Context context) {
+    public void saveReactionTime(Context context) {
         // Save data to file
         try {
             // http://stackoverflow.com/questions/3625837/android-what-is-wrong-with-openfileoutput, naikus, 2015-09-26
@@ -81,14 +81,20 @@ public class ReactionTimes {
         }
     }
 
+    public void clearData() {
+        this.reactionTimes.clear();
+    }
+
     /*
     Return dictionary containing all relevant stat values - key is string describing what stat
     value is being recorded.
     */
     public HashMap<String, Long> timeStats() {
-        int end = this.reactionTimes.size();
         // Save all times to a new variable to sort it (for median) without destroying ordering in file
         List<Long> allTimes = this.reactionTimes;
+        if (allTimes.isEmpty()) { allTimes.add(Long.valueOf(0)); }
+        int end = allTimes.size();
+
         int last10end = end - 10;
         if (last10end < 0) { last10end = 0; }
         int last100end = end - 100;

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
@@ -15,7 +17,7 @@ public class StatisticsActivity extends AppCompatActivity {
 
     // Get reaction times singleton
     private ReactionTimes reactionTimes = ReactionTimes.getInstance();
-    // Get buzzer winner singletons
+    // Get buzzer winner singleton
     private BuzzerWinners buzzerWinners = BuzzerWinners.getInstance();
 
     @Override
@@ -25,6 +27,15 @@ public class StatisticsActivity extends AppCompatActivity {
 
         loadReactionTimes();
         loadBuzzerWinners();
+
+        Button clearButton = (Button) findViewById(R.id.clearAllStatsButton);
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearBuzzerWinners();
+                clearReactionTimes();
+            }
+        });
     }
 
     @Override
@@ -61,6 +72,18 @@ public class StatisticsActivity extends AppCompatActivity {
 
         HashMap<String, Integer> buzzerStats = buzzerWinners.buzzerStats();
         displayBuzzerWinners(buzzerStats);
+    }
+
+    private void clearBuzzerWinners() {
+        this.buzzerWinners.clearData();
+        this.buzzerWinners.saveBuzzerWinners(this.getBaseContext());
+        loadBuzzerWinners();
+    }
+
+    private void clearReactionTimes() {
+        this.reactionTimes.clearData();
+        this.reactionTimes.saveReactionTime(this.getBaseContext());
+        loadReactionTimes();
     }
 
     private void displayReactionTimes(HashMap<String, Long> timeStats) {
