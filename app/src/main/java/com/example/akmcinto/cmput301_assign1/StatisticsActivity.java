@@ -1,8 +1,11 @@
 package com.example.akmcinto.cmput301_assign1;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +37,14 @@ public class StatisticsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 clearBuzzerWinners();
                 clearReactionTimes();
+            }
+        });
+
+        Button emailButton = (Button) findViewById(R.id.emailStatsButton);
+        emailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emailStats();
             }
         });
     }
@@ -84,6 +95,22 @@ public class StatisticsActivity extends AppCompatActivity {
         this.reactionTimes.clearData();
         this.reactionTimes.saveReactionTime(this.getBaseContext());
         loadReactionTimes();
+    }
+
+    private void emailStats() {
+        HashMap<String, Integer> buzzStats = this.buzzerWinners.buzzerStats();
+        String buzzStr = buzzStats.toString();
+        HashMap<String, Long> reactStats = this.reactionTimes.timeStats();
+        String reactStr = reactStats.toString();
+        // https://developer.android.com/guide/components/intents-common.html, 2015-09-29
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, "");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject: ");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Reaction times:  " + reactStr + "\nBuzzer stats:  " + buzzStr);
+        if (emailIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(emailIntent);
+        }
     }
 
     private void displayReactionTimes(HashMap<String, Long> timeStats) {

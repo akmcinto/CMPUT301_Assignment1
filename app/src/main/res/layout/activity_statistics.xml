@@ -1,12 +1,13 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.akmcinto.cmput301_assign1.StatisticsActivity">
+    tools:context="com.example.akmcinto.cmput301_assign1.StatisticsActivity"
+    android:id="@+id/statisticsLayout">
 
     <TableRow>
         <TextView
             android:id="@+id/ReactionTimeStatsTitle"
-            android:layout_span="5"
+            android:layout_span="6"
             android:text="@string/reaction_time_stats_title"
             android:padding="3dip" />
     </TableRow>
@@ -23,17 +24,20 @@
             android:layout_column="1"
             android:padding="3dip" />
         <TextView
-            android:layout_column="2"
-            android:text="Last 10"
-            android:padding="3dip" />
-        <TextView
             android:layout_column="3"
-            android:text="Last 100"
-            android:padding="3dip" />
+            android:text="Last 10"
+            android:padding="3dip"
+            android:textStyle="bold"/>
         <TextView
             android:layout_column="4"
+            android:text="Last 100"
+            android:padding="3dip"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_column="5"
             android:text="All Time"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold"/>
     </TableRow>
 
     <TableRow>
@@ -42,15 +46,15 @@
             android:text="Fastest"
             android:padding="3dip" />
         <TextView
-            android:layout_column="2"
+            android:layout_column="3"
             android:id="@+id/fast10"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/fast100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="4"
+            android:layout_column="5"
             android:id="@+id/fastAll"
             android:padding="3dip" />
     </TableRow>
@@ -61,15 +65,15 @@
             android:text="Slowest"
             android:padding="3dip" />
         <TextView
-            android:layout_column="2"
+            android:layout_column="3"
             android:id="@+id/slow10"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/slow100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="4"
+            android:layout_column="5"
             android:id="@+id/slowAll"
             android:padding="3dip" />
     </TableRow>
@@ -80,15 +84,15 @@
             android:text="Mean"
             android:padding="3dip" />
         <TextView
-            android:layout_column="2"
+            android:layout_column="3"
             android:id="@+id/mean10"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/mean100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="4"
+            android:layout_column="5"
             android:id="@+id/meanAll"
             android:padding="3dip" />
     </TableRow>
@@ -99,16 +103,22 @@
             android:text="Median"
             android:padding="3dip" />
         <TextView
-            android:layout_column="2"
+            android:layout_column="3"
             android:id="@+id/median10"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/median100"
             android:padding="3dip" />
         <TextView
-            android:layout_column="4"
+            android:layout_column="5"
             android:id="@+id/medianAll"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
             android:padding="3dip" />
     </TableRow>
 
@@ -118,7 +128,7 @@
             android:layout_column="1"
             android:text="Gameshow Buzzer Statistics"
             android:padding="3dip"
-            android:layout_span="5" />
+            android:layout_span="6" />
     </TableRow>
 
     <!-- Blank row for spacing -->
@@ -134,19 +144,19 @@
             android:padding="3dip"
             android:text="Winner:"/>
         <TextView
-            android:layout_column="2"
+            android:layout_column="3"
             android:text="Player 1"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:text="Player 2"
             android:padding="3dip" />
         <TextView
-            android:layout_column="4"
+            android:layout_column="5"
             android:text="Player 3"
             android:padding="3dip" />
         <TextView
-            android:layout_column="5"
+            android:layout_column="6"
             android:text="Player 4"
             android:padding="3dip" />
     </TableRow>
@@ -157,19 +167,19 @@
             android:text="2-Player Mode"
             android:padding="3dip" />
         <TextView
-            android:layout_column="2"
+            android:layout_column="3"
             android:id="@+id/player1Mode2"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/player2Mode2"
             android:padding="3dip" />
         <TextView
-            android:layout_column="4"
+            android:layout_column="5"
             android:id="@+id/player3Mode2"
             android:padding="3dip" />
         <TextView
-            android:layout_column="5"
+            android:layout_column="6"
             android:id="@+id/player4Mode2"
             android:padding="3dip" />
     </TableRow>
@@ -180,19 +190,19 @@
             android:text="3-Player Mode"
             android:padding="3dip" />
         <TextView
-            android:layout_column="2"
+            android:layout_column="3"
             android:id="@+id/player1Mode3"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/player2Mode3"
             android:padding="3dip" />
         <TextView
-            android:layout_column="4"
+            android:layout_column="5"
             android:id="@+id/player3Mode3"
             android:padding="3dip" />
         <TextView
-            android:layout_column="5"
+            android:layout_column="6"
             android:id="@+id/player4Mode3"
             android:padding="3dip" />
     </TableRow>
@@ -203,19 +213,19 @@
             android:text="4-Player Mode"
             android:padding="3dip" />
         <TextView
-            android:layout_column="2"
+            android:layout_column="3"
             android:id="@+id/player1Mode4"
             android:padding="3dip" />
         <TextView
-            android:layout_column="3"
+            android:layout_column="4"
             android:id="@+id/player2Mode4"
             android:padding="3dip" />
         <TextView
-            android:layout_column="4"
+            android:layout_column="5"
             android:id="@+id/player3Mode4"
             android:padding="3dip" />
         <TextView
-            android:layout_column="5"
+            android:layout_column="6"
             android:id="@+id/player4Mode4"
             android:padding="3dip" />
     </TableRow>
@@ -223,14 +233,40 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip" />
+    </TableRow>
+
+    <!-- http://stackoverflow.com/questions/7212760/spanning-columns-with-tablelayout, IncrediApp, 20
+15-09-29-->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_span="2"
             android:text="Clear"
             android:id="@+id/clearAllStatsButton"
-            android:layout_column="1" />
+            android:layout_column="5" />
 
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip" />
     </TableRow>
 
     <TableRow
@@ -240,9 +276,11 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_span="2"
             android:text="Email"
             android:id="@+id/emailStatsButton"
-            android:layout_column="1" />
+            android:layout_column="5" />
     </TableRow>
 
 </TableLayout>
+
