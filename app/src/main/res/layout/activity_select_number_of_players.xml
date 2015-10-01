@@ -19,21 +19,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2 Players"
-        android:id="@+id/select2PlayersButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@id/select3PlayersButton"
-        android:layout_marginBottom="35dp"
-        android:height="75dp"
-        android:onClick="select2PlayerBuzzer"
-        android:background="@android:color/holo_orange_light"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="3 Players"
         android:id="@+id/select3PlayersButton"
         android:layout_alignParentStart="true"
@@ -45,6 +30,21 @@
         android:layout_marginBottom="35dp"
         android:height="75dp"
         android:onClick="select3PlayerBuzzer"
+        android:background="@android:color/holo_orange_light"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 Players"
+        android:id="@+id/select2PlayersButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/select3PlayersButton"
+        android:layout_marginBottom="35dp"
+        android:height="75dp"
+        android:onClick="select2PlayerBuzzer"
         android:background="@android:color/holo_orange_light"/>
 
     <Button
