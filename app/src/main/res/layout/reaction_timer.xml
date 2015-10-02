@@ -31,8 +31,10 @@
         android:onClick="TimerButtonClicked"
         android:height="150dp"
         android:width="300dp"
-        android:background="@android:color/holo_red_light"
-        android:textColor="@android:color/holo_blue_bright"
+        android:background="@android:color/holo_blue_light"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="30dp"/>
+
+
 
 </RelativeLayout>

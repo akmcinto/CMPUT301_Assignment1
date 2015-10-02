@@ -261,7 +261,8 @@
             android:layout_span="2"
             android:text="Clear"
             android:id="@+id/clearAllStatsButton"
-            android:layout_column="5" />
+            android:layout_column="5"
+            android:textColor="@android:color/white"/>
 
     </TableRow>
 
@@ -275,7 +276,8 @@
             android:layout_span="2"
             android:text="Email"
             android:id="@+id/emailStatsButton"
-            android:layout_column="5" />
+            android:layout_column="5"
+            android:textColor="@android:color/holo_green_dark"/>
     </TableRow>
 
 </TableLayout>
