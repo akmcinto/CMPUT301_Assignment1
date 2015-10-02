@@ -1,3 +1,19 @@
+/*
+   Copyright 2015 Andrea McIntosh
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
+
 package com.example.akmcinto.cmput301_assign1;
 
 import android.content.Intent;
@@ -98,16 +114,13 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     private void emailStats() {
-        HashMap<String, Integer> buzzStats = this.buzzerWinners.buzzerStats();
-        String buzzStr = buzzStats.toString();
-        HashMap<String, Long> reactStats = this.reactionTimes.timeStats();
-        String reactStr = reactStats.toString();
+        String emailStr = getStatsEmail();
         // https://developer.android.com/guide/components/intents-common.html, 2015-09-29
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.putExtra(Intent.EXTRA_EMAIL, "");
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject: ");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Reaction times:  " + reactStr + "\nBuzzer stats:  " + buzzStr);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, emailStr);
         if (emailIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(emailIntent);
         }
@@ -166,4 +179,33 @@ public class StatisticsActivity extends AppCompatActivity {
         tableCell.setText(buzzerStats.get("player4Mode4").toString());
     }
 
+    private String getStatsEmail() {
+        HashMap<String, Integer> buzzerStats = this.buzzerWinners.buzzerStats();
+        HashMap<String, Long> timeStats = this.reactionTimes.timeStats();
+
+        String email = "Reaction timer:  \n" +
+                "Fastest (last 10):  " +  timeStats.get("fast10").toString() + "ms\n" +
+                "Fastest (last 100):  " + timeStats.get("fast100").toString() + "ms\n" +
+                "Fastest (all time):  " + timeStats.get("fastAll").toString() + "ms\n" +
+                "Slowest (last 10):  " +  timeStats.get("slow10").toString() + "ms\n" +
+                "Slowest (last 100):  " + timeStats.get("slow100").toString() + "ms\n" +
+                "Slowest (all time):  " + timeStats.get("slowAll").toString() + "ms\n" +
+                "Mean (last 10):  " +  timeStats.get("mean10").toString() + "ms\n" +
+                "Mean (last 100):  " + timeStats.get("mean100").toString() + "ms\n" +
+                "Mean (all time):  " + timeStats.get("meanAll").toString() + "ms\n" +
+                "Median (last 10):  " +  timeStats.get("median10").toString() + "ms\n" +
+                "Median (last 100):  " + timeStats.get("median100").toString() + "ms\n" +
+                "Median (all time):  " + timeStats.get("medianAll").toString() + "ms\n" +
+                "\n"+ "Buzzer winners:  \n" +
+                "Player 1 wins (2-player):  " + buzzerStats.get("player1Mode2").toString() + "\n" +
+                "Player 1 wins (3-player):  " + buzzerStats.get("player1Mode3").toString() + "\n" +
+                "Player 1 wins (4-player):  " + buzzerStats.get("player1Mode4").toString() + "\n" +
+                "Player 2 wins (2-player):  " + buzzerStats.get("player2Mode2").toString() + "\n" +
+                "Player 2 wins (3-player):  " + buzzerStats.get("player2Mode3").toString() + "\n" +
+                "Player 2 wins (4-player):  " + buzzerStats.get("player2Mode4").toString() + "\n" +
+                "Player 3 wins (3-player):  " + buzzerStats.get("player3Mode3").toString() + "\n" +
+                "Player 3 wins (4-player):  " + buzzerStats.get("player3Mode4").toString() + "\n" +
+                "Player 4 wins (4-player):  " + buzzerStats.get("player4Mode4").toString();
+        return email;
+    }
 }

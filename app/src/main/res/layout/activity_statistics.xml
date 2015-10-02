@@ -11,7 +11,7 @@
             android:text="@string/reaction_time_stats_title"
             android:padding="3dip"
             android:textStyle="bold"
-            android:textScaleX="1.5" />
+            android:textSize="18dp" />
     </TableRow>
 
 
@@ -39,7 +39,7 @@
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="Fastest"
+            android:text="Fastest (ms)"
             android:padding="3dip"
             android:textStyle="bold" />
         <TextView
@@ -59,7 +59,7 @@
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="Slowest"
+            android:text="Slowest (ms)"
             android:padding="3dip"
             android:textStyle="bold" />
         <TextView
@@ -79,7 +79,7 @@
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="Mean"
+            android:text="Mean (ms)"
             android:padding="3dip"
             android:textStyle="bold" />
         <TextView
@@ -99,7 +99,7 @@
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="Median"
+            android:text="Median (ms)"
             android:padding="3dip"
             android:textStyle="bold" />
         <TextView
@@ -131,7 +131,7 @@
             android:padding="3dip"
             android:layout_span="6"
             android:textStyle="bold"
-            android:textScaleX="1.5"/>
+            android:textSize="18dp"/>
     </TableRow>
 
     <TableRow>
@@ -262,7 +262,8 @@
             android:text="Clear"
             android:id="@+id/clearAllStatsButton"
             android:layout_column="5"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_marginBottom="10dp" />
 
     </TableRow>
 
@@ -277,7 +278,7 @@
             android:text="Email"
             android:id="@+id/emailStatsButton"
             android:layout_column="5"
-            android:textColor="@android:color/holo_green_dark"/>
+            android:textColor="@android:color/holo_blue_dark"/>
     </TableRow>
 
 </TableLayout>
