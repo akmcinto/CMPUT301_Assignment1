@@ -21,6 +21,9 @@ import android.content.DialogInterface;
 import android.view.View;
 import android.widget.Button;
 
+/*
+    Class about a button for the game show buzzer.  Each player will have their own instance of buzzer button.
+ */
 public class BuzzerButton {
 
     private Integer playerNum;

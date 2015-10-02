@@ -119,7 +119,7 @@ public class StatisticsActivity extends AppCompatActivity {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.putExtra(Intent.EXTRA_EMAIL, "");
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject: ");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "akmcinto-reflex Statistics");
         emailIntent.putExtra(Intent.EXTRA_TEXT, emailStr);
         if (emailIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(emailIntent);

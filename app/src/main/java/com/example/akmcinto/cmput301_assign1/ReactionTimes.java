@@ -37,7 +37,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-/* Class for handling saving and loading reaction times */
+/*
+    Class for handling data about reaction times.
+    Saves, loads, and clears data file of reaction times.
+    Computes relevant stats on the reaction times and returns them as a dictionary.
+ */
 public class ReactionTimes {
 
     // Create the filenames for persistent app data
@@ -107,7 +111,8 @@ public class ReactionTimes {
         int end = allTimes.size();
 
         int last10end = end - 10;
-        if (last10end < 0) { last10end = 0; }
+        if (last10end < 0) {
+            last10end = 0; }
         int last100end = end - 100;
         if (last100end < 0) { last100end = 0; }
         List<Long> last10Times = allTimes.subList(last10end, end);

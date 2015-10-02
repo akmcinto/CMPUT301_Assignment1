@@ -23,6 +23,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+/*
+    Main activity class.  Contains buttons directing to the other activies.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

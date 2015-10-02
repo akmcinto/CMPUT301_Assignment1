@@ -22,6 +22,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+/*
+    Button that appears and disappears to test a player's reaction time.
+ */
 public class ReactionButton {
 
     protected Button button;

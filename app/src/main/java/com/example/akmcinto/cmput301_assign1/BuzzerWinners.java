@@ -32,6 +32,11 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/*
+    Class for handling data about winners of each buzzer round.
+    Saves, loads, and clears data file of winners.
+    Computes stats of which player won for each buzzer mode and returns stats as a dictionary.
+ */
 public class BuzzerWinners {
 
     // Create the filenames for persistent app data
@@ -95,6 +100,7 @@ public class BuzzerWinners {
     }
 
     public HashMap<String, Integer> buzzerStats() {
+        // Count up winners of 2-player mode
         Integer player1Mode2Wins = 0;
         Integer player2Mode2Wins = 0;
         ArrayList<Integer> mode2 = this.buzzerWinners.get(2);
@@ -106,6 +112,7 @@ public class BuzzerWinners {
             else if (winner.equals(2)) { player2Mode2Wins += 1; }
         }
 
+        // Count up winners of 3-player mode
         Integer player1Mode3Wins = 0;
         Integer player2Mode3Wins = 0;
         Integer player3Mode3Wins = 0;
@@ -119,6 +126,7 @@ public class BuzzerWinners {
             else if (winner.equals(3)) { player3Mode3Wins += 1; }
         }
 
+        // Count of winners of 4-player mode
         Integer player1Mode4Wins = 0;
         Integer player2Mode4Wins = 0;
         Integer player3Mode4Wins = 0;
