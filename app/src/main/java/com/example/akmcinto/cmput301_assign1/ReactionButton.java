@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ReactionButton {
 
-    protected Button button;
+    private Button button;
     private Long appearTime;
     private Long clickTime;
     private String visibility;
@@ -37,7 +37,7 @@ public class ReactionButton {
     }
 
     // Calculate a random amount of time fr button to be hidden for
-    public Long GetDelay() {
+    public Long getDelay() {
         Double delay = Math.random();
         // Convert delay to be up to 2000ms
         delay = delay * 2000;

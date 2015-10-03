@@ -62,7 +62,7 @@ public class BuzzerWinners {
     }
 
     // Save data to file
-    public void saveBuzzerWinners(Context context) {
+    private void saveBuzzerWinners(Context context) {
         try {
             // From:  UAlberta CMPUT301, CMPUT 301 Lab Materials, https://github.com/joshua2ua/lonelyTwitter/tree/f15monday, 2015
             FileOutputStream fos = context.openFileOutput(BUZZER_FILE_NAME, Context.MODE_PRIVATE);

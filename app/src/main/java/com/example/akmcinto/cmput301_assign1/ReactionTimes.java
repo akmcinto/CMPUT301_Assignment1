@@ -60,7 +60,7 @@ public class ReactionTimes {
     }
 
     // Save data to file
-    public void saveReactionTime(Context context) {
+    private void saveReactionTime(Context context) {
         try {
             // From:  UAlberta CMPUT301, CMPUT 301 Lab Materials, https://github.com/joshua2ua/lonelyTwitter/tree/f15monday, 2015
             FileOutputStream fos = context.openFileOutput(REACTION_FILE_NAME, Context.MODE_PRIVATE);
