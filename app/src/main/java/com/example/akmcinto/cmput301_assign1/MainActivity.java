@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Link buttons to their activities
     public void reactionTimer(View view) {
         Intent intent = new Intent(MainActivity.this, ReactionTimerActivity.class);
         startActivity(intent);

@@ -18,11 +18,15 @@ package com.example.akmcinto.cmput301_assign1;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class SelectNumberOfPlayersActivity extends ActionBarActivity {
+/*
+    Activity to select how many players there are for the gameshow buzzer game.
+*/
+public class SelectNumberOfPlayersActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,7 @@ public class SelectNumberOfPlayersActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Link buttons to their activities
     public void select2PlayerBuzzer(View view) {
         Intent intent = new Intent(SelectNumberOfPlayersActivity.this, Player2BuzzerActivity.class);
         startActivity(intent);

@@ -18,20 +18,19 @@ package com.example.akmcinto.cmput301_assign1;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
 
+/*
+    Activity for showing, clearing and emailing statistics
+*/
 public class StatisticsActivity extends AppCompatActivity {
 
     // Get reaction times singleton
@@ -47,6 +46,7 @@ public class StatisticsActivity extends AppCompatActivity {
         loadReactionTimes();
         loadBuzzerWinners();
 
+        // Set up clear button
         Button clearButton = (Button) findViewById(R.id.clearAllStatsButton);
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +56,7 @@ public class StatisticsActivity extends AppCompatActivity {
             }
         });
 
+        // Set up email button
         Button emailButton = (Button) findViewById(R.id.emailStatsButton);
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +88,7 @@ public class StatisticsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Load the reaction times from their save file and display
     private void loadReactionTimes() {
         reactionTimes.loadReactionTime(this.getBaseContext());
 
@@ -94,6 +96,7 @@ public class StatisticsActivity extends AppCompatActivity {
         displayReactionTimes(timeStats);
     }
 
+    // Load the buzzer winners from their save file and display
     private void loadBuzzerWinners() {
         buzzerWinners.loadBuzzerWinners(this.getBaseContext());
 
@@ -101,21 +104,22 @@ public class StatisticsActivity extends AppCompatActivity {
         displayBuzzerWinners(buzzerStats);
     }
 
+    // Clear the save file and display the blank stats
     private void clearBuzzerWinners() {
-        this.buzzerWinners.clearData();
-        this.buzzerWinners.saveBuzzerWinners(this.getBaseContext());
+        this.buzzerWinners.clearData(this.getBaseContext());
         loadBuzzerWinners();
     }
 
+    // Clear the save file and display the blank stats
     private void clearReactionTimes() {
-        this.reactionTimes.clearData();
-        this.reactionTimes.saveReactionTime(this.getBaseContext());
+        this.reactionTimes.clearData(this.getBaseContext());
         loadReactionTimes();
     }
 
+    // Create email of the statistics
     private void emailStats() {
         String emailStr = getStatsEmail();
-        // https://developer.android.com/guide/components/intents-common.html, 2015-09-29
+        // From:  https://developer.android.com/guide/components/intents-common.html, 2015-09-29
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.putExtra(Intent.EXTRA_EMAIL, "");
@@ -126,6 +130,7 @@ public class StatisticsActivity extends AppCompatActivity {
         }
     }
 
+    // Put statistics from dictionary on the screen
     private void displayReactionTimes(HashMap<String, Long> timeStats) {
         TextView tableCell = (TextView) findViewById(R.id.fast10);
         tableCell.setText(timeStats.get("fast10").toString());
@@ -156,6 +161,7 @@ public class StatisticsActivity extends AppCompatActivity {
         tableCell.setText(timeStats.get("medianAll").toString());
     }
 
+    // Put statistics from dictionary on the screen
     private void displayBuzzerWinners(HashMap<String, Integer> buzzerStats) {
         TextView tableCell = (TextView) findViewById(R.id.player1Mode2);
         tableCell.setText(buzzerStats.get("player1Mode2").toString());
@@ -179,6 +185,7 @@ public class StatisticsActivity extends AppCompatActivity {
         tableCell.setText(buzzerStats.get("player4Mode4").toString());
     }
 
+    // For the email:  create a formatted string of all the statistics to send
     private String getStatsEmail() {
         HashMap<String, Integer> buzzerStats = this.buzzerWinners.buzzerStats();
         HashMap<String, Long> timeStats = this.reactionTimes.timeStats();

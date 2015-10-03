@@ -30,7 +30,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,26 +46,23 @@ public class ReactionTimes {
     // Create the filenames for persistent app data
     private String REACTION_FILE_NAME = "reactionTimerDataFile";
     private ArrayList<Long> reactionTimes = new ArrayList<Long>();
+
+    // Initiate singleton so that only one object is handling the reaction times data
     private static ReactionTimes ourInstance = new ReactionTimes();
-
-
     public static ReactionTimes getInstance() {
         return ourInstance;
     }
-
-    private ReactionTimes() {
-    }
+    private ReactionTimes() { }
 
     public void addReactionTime(Long time, Context context) {
         reactionTimes.add(time);
         saveReactionTime(context);
     }
 
+    // Save data to file
     public void saveReactionTime(Context context) {
-        // Save data to file
         try {
-            // http://stackoverflow.com/questions/3625837/android-what-is-wrong-with-openfileoutput, naikus, 2015-09-26
-            // TODO: From lab
+            // From:  UAlberta CMPUT301, CMPUT 301 Lab Materials, https://github.com/joshua2ua/lonelyTwitter/tree/f15monday, 2015
             FileOutputStream fos = context.openFileOutput(REACTION_FILE_NAME, Context.MODE_PRIVATE);
             BufferedWriter output = new BufferedWriter(new OutputStreamWriter(fos));
             Gson gson = new Gson();
@@ -80,13 +76,16 @@ public class ReactionTimes {
         }
     }
 
+    // Load the reaction times from their save file
     public void loadReactionTime(Context context) {
         try {
+            // From:  UAlberta CMPUT301, CMPUT 301 Lab Materials, https://github.com/joshua2ua/lonelyTwitter/tree/f15monday, 2015
             FileInputStream fis = context.openFileInput(REACTION_FILE_NAME);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
             Gson gson = new Gson();
-            // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html, 2015-09-23
+            // From:  https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html, 2015-09-23
             Type arrayListType = new TypeToken<ArrayList<Long>>() {}.getType();
+
             this.reactionTimes = gson.fromJson(in, arrayListType);
 
         } catch (FileNotFoundException e) {
@@ -96,8 +95,10 @@ public class ReactionTimes {
         }
     }
 
-    public void clearData() {
+    // Clear all reaction times from the file
+    public void clearData(Context context) {
         this.reactionTimes.clear();
+        saveReactionTime(context);
     }
 
     /*
@@ -107,9 +108,16 @@ public class ReactionTimes {
     public HashMap<String, Long> timeStats() {
         // Save all times to a new variable to sort it (for median) without destroying ordering in file
         List<Long> allTimes = (List<Long>) this.reactionTimes.clone();
+        // If there are no saved reaction times, add a time of '0'
         if (allTimes.isEmpty()) { allTimes.add(Long.valueOf(0)); }
         int end = allTimes.size();
 
+        /*
+            Make sure there are enough entries.
+            If not enough data points for analyzing last 10 and 100 reaction times, use as many as
+            are available up to the max amount.
+            Retrieve the most recent entries as sublists of the list of all times.
+        */
         int last10end = end - 10;
         if (last10end < 0) {
             last10end = 0; }
@@ -135,7 +143,7 @@ public class ReactionTimes {
         // Save values to a dictionary
         HashMap<String, Long> timeStats = new HashMap<String, Long>();
 
-        // http://stackoverflow.com/questions/8304767/how-to-get-maximum-value-from-the-list-arraylist, gotomanners, 2015-09-26
+        // Generate relevant statistics and add them to a dictionary for easy retrieval
         timeStats.put("fast10", Collections.min(last10Times));
         timeStats.put("slow10", Collections.max(last10Times));
         timeStats.put("fast100", Collections.min(last100Times));

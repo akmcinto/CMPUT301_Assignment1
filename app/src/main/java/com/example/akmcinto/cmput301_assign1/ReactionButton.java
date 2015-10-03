@@ -36,6 +36,7 @@ public class ReactionButton {
         this.button = button;
     }
 
+    // Calculate a random amount of time fr button to be hidden for
     public Long GetDelay() {
         Double delay = Math.random();
         // Convert delay to be up to 2000ms

@@ -29,9 +29,9 @@ public class BuzzerButton {
     private Integer playerNum;
     private Button button;
     private Context buzzerContext;
-    private Integer numPlayers;
     private BuzzerWinners buzzerWinners = BuzzerWinners.getInstance();
 
+    // Attach an onClick method to the button that will it record the player as the winner
     public BuzzerButton(Button button, final Integer playerNum, final Integer numPlayers, final Context buzzerContext) {
         this.button = button;
         this.button.setOnClickListener(new View.OnClickListener() {
@@ -43,12 +43,11 @@ public class BuzzerButton {
 
         });
         this.playerNum = playerNum;
-        this.numPlayers = numPlayers;
         this.buzzerContext = buzzerContext;
     }
 
+    // When player clicks their button first, generate a popup saying they won
     private void showWinner() {
-        // http://stackoverflow.com/questions/26097513/android-simple-alert-dialog, MysticMagicϡ, 2015-09-26
         AlertDialog alertDialog = new AlertDialog.Builder(buzzerContext).create();
         alertDialog.setMessage("Player " + this.playerNum.toString() + " wins!");
 

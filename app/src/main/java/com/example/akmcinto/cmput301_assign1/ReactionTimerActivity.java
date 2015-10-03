@@ -29,6 +29,10 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
+/*
+    Activity for running the reaction timer activity.  Shows/hides reaction timer button.  Displays
+    instructions, reaction time.  Records when button was shown and clicked to find the reaction time.
+*/
 public class ReactionTimerActivity extends AppCompatActivity {
 
     ReactionButton reactionButton;
@@ -48,8 +52,8 @@ public class ReactionTimerActivity extends AppCompatActivity {
         displayInstructions();
     }
 
+    // Show a popup with instructions for the game.  After it is dismissed start the game.
     private void displayInstructions() {
-        // http://stackoverflow.com/questions/26097513/android-simple-alert-dialog, MysticMagicϡ, 2015-09-26
         this.alertDialog = new AlertDialog.Builder(ReactionTimerActivity.this).create();
         alertDialog.setMessage("Click button as quickly as possible after it appears.  " +
                 "Press back button to exit.");
@@ -87,6 +91,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Hides the button then starts a handler to show it after a delay.
     public void ControlButton() {
         // Start button's hide/show behaviour
         Long delay = this.reactionButton.GetDelay();
@@ -97,6 +102,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
         timerHandler.postDelayed(waitRunnable, delay);
     }
 
+    // Runnable to show the button after a delay has elapsed
     Runnable waitRunnable = new Runnable() {
         @Override
         public void run() {
@@ -104,12 +110,14 @@ public class ReactionTimerActivity extends AppCompatActivity {
         }
     };
 
+    // Show the button after delay has elapsed.  Save the time it appeared to later calculate delay.
     public void showButton() {
         this.reactionButton.changeVisibility("visible");
         //Save when the button appeared to calculate reaction time
         this.reactionButton.setAppearTime(Calendar.getInstance().getTimeInMillis());
     }
 
+    // Click method for the timer button
     public void TimerButtonClicked(View view) {
         // Make sure button is visible when screen pressed
         TextView clickText = (TextView) findViewById(R.id.clickMessage);
@@ -132,6 +140,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
         ControlButton();
     }
 
+    // Separate runnable to show text about when the button was pressed for only a short amount of time
     Runnable textRunnable = new Runnable() {
         @Override
         public void run() {

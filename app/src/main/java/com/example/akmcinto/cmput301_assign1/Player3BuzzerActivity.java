@@ -15,13 +15,15 @@
  */
 package com.example.akmcinto.cmput301_assign1;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+/*
+    Activity for buzzer game when there are 3 players.
+*/
 public class Player3BuzzerActivity extends AppCompatActivity {
 
     @Override
