@@ -1,4 +1,0 @@
-Showing/hiding button with delay:
-	http://stackoverflow.com/questions/8177830/hide-a-layout-after-10-seconds-in-android
-	By user "Kartik"
-	Answered Novemeber 18, 2011, Accessed Sept. 20, 2015
