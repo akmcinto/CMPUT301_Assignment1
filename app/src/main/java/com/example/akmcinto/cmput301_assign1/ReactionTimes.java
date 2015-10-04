@@ -112,12 +112,8 @@ public class ReactionTimes {
         if (allTimes.isEmpty()) { allTimes.add(Long.valueOf(0)); }
         int end = allTimes.size();
 
-        /*
-            Make sure there are enough entries.
-            If not enough data points for analyzing last 10 and 100 reaction times, use as many as
-            are available up to the max amount.
-            Retrieve the most recent entries as sublists of the list of all times.
-        */
+        // Make sure there are enough entries.  If not enough data points for analyzing last 10 and 100 reaction times, use as many as
+        // are available up to the max amount.
         int last10end = end - 10;
         if (last10end < 0) {
             last10end = 0; }

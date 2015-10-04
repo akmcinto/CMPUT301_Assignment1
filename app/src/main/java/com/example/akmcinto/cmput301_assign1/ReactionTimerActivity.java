@@ -31,6 +31,11 @@ import java.util.Calendar;
 /*
     Activity for running the reaction timer activity.  Shows/hides reaction timer button.  Displays
     instructions, reaction time.  Records when button was shown and clicked to find the reaction time.
+
+    Work remaining:  String displaying the reaction time after a button click is not re-setting its
+        display timer when a new string is given (i.e. if a new string is sent before the previous
+        string disappears, the new string will only be displayed for the amount of time remaining
+        from the previous string).
 */
 public class ReactionTimerActivity extends AppCompatActivity {
 
